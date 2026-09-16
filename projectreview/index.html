@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breaking Down the Generate and Judge Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');
+
+  :root {
+    --purple-light: #E4E2F8;
+    --purple-mid: #ACA8EA;
+    --purple-primary: #4C42CF;
+    --purple-dark: #1F1976;
+    --white: #FFFFFF;
+    --heading-color: #4C42CF;
+    --body-text: #333333;
+    --focus-ring: #ACA8EA;
+    --shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    --font-family: 'Geist', system-ui, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--body-text);
+    background-color: var(--white);
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+  }
+
+  h1 {
+    font-family: var(--font-family);
+    font-size: clamp(22px, 4vw, 28px);
+    margin: 0 0 16px;
+    color: var(--heading-color);
+  }
+
+  h2 {
+    font-family: var(--font-family);
+    font-size: clamp(18px, 3.5vw, 22px);
+    margin: 0 0 16px;
+    color: var(--heading-color);
+  }
+
+  h2:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 4px;
+  }
+
+  p {
+    margin: 0 0 12px;
+  }
+
+  .stepper {
+    margin-top: 28px;
+    border: 1px solid var(--purple-light);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    background-color: var(--white);
+  }
+
+  .guide-page {
+    animation: fade-in 200ms ease-in;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .guide-page {
+      animation: none;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .guide-page-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .guide-page-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .bubble-stepper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .bubble {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--purple-light);
+  }
+
+  .bubble[aria-current="step"] {
+    width: 14px;
+    height: 14px;
+    background-color: var(--purple-primary);
+  }
+
+  .stepper-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--purple-light);
+  }
+
+  #next-button {
+    margin-inline-start: auto;
+  }
+
+  .stepper-button {
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 22px;
+    min-height: 44px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .stepper-button-primary {
+    background-color: var(--purple-primary);
+    color: var(--white);
+    border-color: var(--purple-primary);
+  }
+
+  .stepper-button-primary:hover:not(:disabled) {
+    background-color: var(--purple-dark);
+    border-color: var(--purple-dark);
+  }
+
+  .stepper-button-secondary {
+    background-color: transparent;
+    color: var(--purple-dark);
+    border-color: var(--purple-light);
+  }
+
+  .stepper-button-secondary:hover:not(:disabled) {
+    background-color: var(--purple-light);
+  }
+
+  .stepper-button:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="stepper" aria-label="Guide sections">
+    <div class="stepper-viewport">
+      <article class="guide-page" data-title="Opening Section">
+        <h2 tabindex="-1">Opening Section</h2>
+        <div class="guide-page-body">
+          <div class="guide-page-text">
+            <p>This opening section introduces the topic, audience, and purpose of the guide.</p>
+            <p>By choosing a specific audience and focus, the student creates a clearer foundation for the project.</p>
+          </div>
+          <div class="guide-page-image">
+            <img src="https://images.code.org/301915f70ff79c5244d0f23356f43526-image-1789581224499.51.15 AM.png" alt="Audience, theme, and purpose of the AI Guide">
+          </div>
+        </div>
+      </article>
+
+      <article class="guide-page" data-title="Helpful vs. Unhelpful AI Use" hidden>
+        <h2 tabindex="-1">Helpful vs. Unhelpful AI Use</h2>
+        <div class="guide-page-body">
+          <div class="guide-page-text">
+            <p>This section helps students compare responsible and irresponsible uses of AI.</p>
+            <p>The student explains both the benefits and risks while emphasizing that humans are responsible for what gets shared.</p>
+          </div>
+          <div class="guide-page-image">
+            <img src="https://images.code.org/7caea9abdda3243728294d253ff9668a-image-1789581176667.51.33 AM.png" alt="Chat examples of helpful AI use">
+          </div>
+        </div>
+      </article>
+
+      <article class="guide-page" data-title="Chatbot Evidence" hidden>
+        <h2 tabindex="-1">Chatbot Evidence</h2>
+        <div class="guide-page-body">
+          <div class="guide-page-text">
+            <p>This section gives students the opportunity to test and evaluate AI-generated responses.</p>
+            <p>The student analyzes the chatbot's output, identifies strengths and weaknesses, and explains why human judgment is still necessary.</p>
+          </div>
+          <div class="guide-page-image">
+            <img src="https://images.code.org/92d376ffb21210bc040093d2a526b30a-image-1789581176588.52.12 AM.png" alt="Logs of custom chatbot use">
+          </div>
+        </div>
+      </article>
+
+      <article class="guide-page" data-title="Image Generation" hidden>
+        <h2 tabindex="-1">Image Generation</h2>
+        <div class="guide-page-body">
+          <div class="guide-page-text">
+            <p>This section encourages students to think critically about AI-generated images and misinformation.</p>
+            <p>The student reflects on audience trust, realism, and the responsibility creators have when sharing AI-generated media.</p>
+          </div>
+          <div class="guide-page-image">
+            <img src="https://images.code.org/4df6538bfb67eb82df279ee81e24dc17-image-1789581176629.51.59 AM.png" alt="A generated image and tips for image generation">
+          </div>
+        </div>
+      </article>
+
+      <article class="guide-page" data-title="Tips for Responsible Use" hidden>
+        <h2 tabindex="-1">Tips for Responsible Use</h2>
+        <div class="guide-page-body">
+          <div class="guide-page-text">
+            <p>This final section synthesizes ideas from across the unit into practical advice for others.</p>
+            <p>The student connects recommendations back to earlier investigations and demonstrates evidence-based reasoning about AI use.</p>
+          </div>
+          <div class="guide-page-image">
+            <img src="https://images.code.org/bd82c2d4b5c048628d1f22a2d5e9837f-image-1789581176613.52.18 AM.png" alt="Four final tips for responsible use">
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="bubble-stepper" role="list" aria-label="Section progress">
+      <span class="bubble" role="listitem" aria-current="step"></span>
+      <span class="bubble" role="listitem"></span>
+      <span class="bubble" role="listitem"></span>
+      <span class="bubble" role="listitem"></span>
+      <span class="bubble" role="listitem"></span>
+    </div>
+
+    <div class="stepper-controls">
+      <button type="button" id="prev-button" class="stepper-button stepper-button-secondary" hidden>Previous</button>
+      <button type="button" id="next-button" class="stepper-button stepper-button-primary">Next</button>
+    </div>
+  </section>
+
+  <div class="visually-hidden" id="stepper-announcer" aria-live="polite" aria-atomic="true"></div>
+</main>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const pages = Array.from(document.querySelectorAll(".guide-page"));
+    const prevButton = document.getElementById("prev-button");
+    const nextButton = document.getElementById("next-button");
+    const bubbles = Array.from(document.querySelectorAll(".bubble"));
+    const announcer = document.getElementById("stepper-announcer");
+
+    let currentIndex = 0;
+
+    function showPage(index, moveFocus) {
+      pages.forEach((page, i) => {
+        if (i === index) {
+          page.hidden = false;
+        } else {
+          page.hidden = true;
+        }
+      });
+
+      bubbles.forEach((bubble, i) => {
+        if (i === index) {
+          bubble.setAttribute("aria-current", "step");
+        } else {
+          bubble.removeAttribute("aria-current");
+        }
+      });
+
+      const title = pages[index].dataset.title;
+      const totalPages = pages.length;
+
+      announcer.textContent = `Now showing: ${title}`;
+
+      prevButton.hidden = index === 0;
+      nextButton.hidden = index === totalPages - 1;
+
+      if (moveFocus) {
+        const heading = pages[index].querySelector("h2");
+        if (heading) {
+          heading.focus();
+        }
+      }
+    }
+
+    prevButton.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex -= 1;
+        showPage(currentIndex, true);
+      }
+    });
+
+    nextButton.addEventListener("click", () => {
+      if (currentIndex < pages.length - 1) {
+        currentIndex += 1;
+        showPage(currentIndex, true);
+      }
+    });
+
+    showPage(currentIndex, false);
+  });
+</script>
+</body>
+</html>
